@@ -3,6 +3,7 @@
     "Real Helix received undefined-identifier diagnostic",
     "Diagnostic cleared after source fix and Helix :reload",
     "Both Openplanet LSP and real Taplo LSP opened info.toml",
+    "Manifest formatting routed only to Taplo",
     "Openplanet LSP published invalid-manifest diagnostic",
     "Ordinary TOML opened by Taplo, not Openplanet LSP"
   ],

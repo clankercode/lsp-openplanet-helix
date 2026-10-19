@@ -61,7 +61,7 @@ Use the same options on subsequent installer runs. For an already-installed defi
 
 ## TOML coexistence
 
-Only `info.toml` selects the `openplanet-info` language, with TOML grammar and `language-id = "toml"`. Ordinary TOML retains Helix's existing configuration. The manifest uses **Openplanet LSP plus Taplo** by default. Install an LSP-capable [Taplo release](https://github.com/tamasfe/taplo/releases) or `cargo install taplo-cli --locked --features lsp` if you want Taplo too. **The npm `@taplo/cli` package tested here does not include an LSP.**
+Only `info.toml` selects the `openplanet-info` language, with TOML grammar and `language-id = "toml"`. Ordinary TOML retains Helix's existing configuration. The manifest uses **Openplanet LSP diagnostics plus Taplo** by default. Other TOML features, including formatting, remain with Taplo. Install an LSP-capable [Taplo release](https://github.com/tamasfe/taplo/releases) or `cargo install taplo-cli --locked --features lsp` if you want Taplo too. **The npm `@taplo/cli` package tested here does not include an LSP.**
 
 If you use another TOML server already defined in Helix, choose it when installing:
 

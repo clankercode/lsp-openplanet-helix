@@ -1,0 +1,27 @@
+test_complete_licenses_and_query_attribution (test_install.InstallTests.test_complete_licenses_and_query_attribution) ... ok
+test_config_contract (test_install.InstallTests.test_config_contract) ... FAIL
+test_conflicting_definitions_leave_all_files_unchanged (test_install.InstallTests.test_conflicting_definitions_leave_all_files_unchanged) ... ok
+test_custom_manifest_servers_via_cli (test_install.InstallTests.test_custom_manifest_servers_via_cli) ... ok
+test_dry_run_creates_nothing (test_install.InstallTests.test_dry_run_creates_nothing) ... ok
+test_empty_server_refused (test_install.InstallTests.test_empty_server_refused) ... ok
+test_executable_path_and_toml_variants_roundtrip (test_install.InstallTests.test_executable_path_and_toml_variants_roundtrip) ... ok
+test_fresh_install_and_repeat_are_identical (test_install.InstallTests.test_fresh_install_and_repeat_are_identical) ... ok
+test_malformed_toml_refused (test_install.InstallTests.test_malformed_toml_refused) ... ok
+test_partial_identical_install_refused (test_install.InstallTests.test_partial_identical_install_refused) ... ok
+test_preserves_comments_newlines_and_existing_toml_servers (test_install.InstallTests.test_preserves_comments_newlines_and_existing_toml_servers) ... ok
+test_query_conflict_preflight_does_not_write_languages (test_install.InstallTests.test_query_conflict_preflight_does_not_write_languages) ... ok
+test_symlinked_languages_refused (test_install.InstallTests.test_symlinked_languages_refused) ... ok
+
+======================================================================
+FAIL: test_config_contract (test_install.InstallTests.test_config_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xertrov/src/lsp-openplanet-helix/tests/test_install.py", line 120, in test_config_contract
+    self.assertEqual(manifest["language-servers"][0], {"name": "openplanet-lsp", "only-features": ["diagnostics"]})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'openplanet-lsp' != {'name': 'openplanet-lsp', 'only-features': ['diagnostics']}
+
+----------------------------------------------------------------------
+Ran 13 tests in 3.339s
+
+FAILED (failures=1)

@@ -18,7 +18,7 @@ Helix merges builtin, user and project language definitions by name. Server list
 
 1. Back up your current `languages.toml`.
 2. Merge `[language-server.openplanet-lsp]`, `[[language]] name = "angelscript"`, `[[language]] name = "openplanet-info"` and `[[grammar]] name = "angelscript"` from the snippet. If a named definition exists already, edit that definition; do not add a duplicate.
-3. Keep your existing unrelated tables, comments and `[[language]] name = "toml"` configuration. Set `openplanet-info.language-servers` to `["openplanet-lsp", "taplo"]`, `["openplanet-lsp", "tombi"]`, or your actual TOML server(s). User-defined server names need their own `[language-server.NAME]` definition.
+3. Keep your existing unrelated tables, comments and `[[language]] name = "toml"` configuration. Keep `{ name = "openplanet-lsp", only-features = ["diagnostics"] }` first in `openplanet-info.language-servers`, followed by `"taplo"`, `"tombi"`, or your actual TOML server(s). The feature restriction ensures TOML formatting/completion stays with a TOML server. User-defined server names need their own `[language-server.NAME]` definition.
 4. Copy `runtime/queries/angelscript/highlights.scm` and `runtime/queries/openplanet-info/highlights.scm` to the same relative paths under your Helix user configuration directory. The latter inherits Helix's existing TOML highlights.
 5. Run `python3 scripts/build-grammar.py` and restart Helix. If `use-grammars` exists, preserve it: the builder uses a private selection. If instead running `hx --grammar fetch/build` manually, add `angelscript` to any `only` list or remove it from an `except` list, and be aware those commands may build every selected grammar.
 

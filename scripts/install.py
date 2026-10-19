@@ -22,7 +22,9 @@ def snippet(server: str = "openplanet-lsp", toml_servers: list[str] | None = Non
     text = (ROOT / "config/languages.toml").read_text()
     text = text.replace('command = "openplanet-lsp"', "command = " + json.dumps(server, ensure_ascii=False), 1)
     servers = ["taplo"] if toml_servers is None else toml_servers
-    return text.replace('["openplanet-lsp", "taplo"]', json.dumps(["openplanet-lsp", *servers], ensure_ascii=False))
+    manifest_servers = '[{ name = "openplanet-lsp", only-features = ["diagnostics"] }'
+    manifest_servers += ''.join(', ' + json.dumps(name, ensure_ascii=False) for name in servers) + ']'
+    return text.replace('[{ name = "openplanet-lsp", only-features = ["diagnostics"] }, "taplo"]', manifest_servers)
 
 
 def plan(config_dir: Path, text: str) -> list[tuple[Path, bytes]]:

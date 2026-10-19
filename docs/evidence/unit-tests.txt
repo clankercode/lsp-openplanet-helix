@@ -16,6 +16,6 @@ test_query_conflict_preflight_does_not_write_languages (test_install.InstallTest
 test_symlinked_languages_refused (test_install.InstallTests.test_symlinked_languages_refused) ... ok
 
 ----------------------------------------------------------------------
-Ran 16 tests in 1.808s
+Ran 16 tests in 7.016s
 
 OK

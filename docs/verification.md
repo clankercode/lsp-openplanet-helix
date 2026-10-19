@@ -11,7 +11,7 @@ The server auto-detected the existing real Openplanet type DB: Openplanet 1.29.1
 ## Automated evidence
 
 - [16 focused unit tests](evidence/unit-tests.txt): config preservation including comments/newlines, rerun idempotence, preview with no writes, conflicting/partial/invalid TOML, query conflict preflight, symlink refusal, Windows executable quoting, custom TOML LSP lists, narrow filetypes/root markers and complete licenses. Grammar-builder wrapper tests cover private grammar selection, failure, preserving custom libraries and repeat installs. Three wrapper tests plus the symlink test have explicit Windows skips; these are synthetic wrapper tests, not real compiler tests.
-- [Real editor smoke result](evidence/live-smoke.json): five checks passed using actual Helix processes and real language servers, never a simulated editor.
+- [Real editor smoke result](evidence/live-smoke.json): six checks passed using actual Helix processes and real language servers, never a simulated editor.
 - [LSP protocol transcript](evidence/lsp-protocol.json): actual parsed Helix transport messages. Temporary directory prefix replaced with `<verification-run>` for portability; payloads otherwise retained.
 - [Real terminal text](evidence/angelscript-screen.txt).
 
@@ -20,8 +20,9 @@ The smoke checks prove:
 1. Helix opens AngelScript with `languageId=angelscript` and receives an error from Openplanet LSP for `missing_counter`.
 2. Editing the private copy to use `_laps += 1;` and invoking Helix `:reload` clears the diagnostic.
 3. The same `info.toml` is opened with `languageId=toml` by **both** Openplanet LSP and standalone Taplo LSP.
-4. An invalid `[broken` TOML table produces a real manifest parse diagnostic; restoring valid TOML clears it.
-5. `settings.toml` opens through Taplo and never produces a `didOpen` to Openplanet LSP during the bounded check.
+4. Manifest formatting goes to Taplo, with no formatting request sent to Openplanet LSP.
+5. An invalid `[broken` TOML table produces a real manifest parse diagnostic; restoring valid TOML clears it.
+6. `settings.toml` opens through Taplo and never produces a `didOpen` to Openplanet LSP during the bounded check.
 
 The smoke's read-only wait window is 20 seconds per positive condition and 0.5 seconds after the ordinary-TOML positive condition for the negative routing check. This is evidence for the tested scenario, not proof for all timing or workspace combinations.
 
@@ -39,7 +40,7 @@ python3 scripts/live-smoke.py \
   --output /tmp/my-helix-check/results
 ```
 
-The output directory must not already exist. Adjust the library extension for your platform. The smoke is POSIX-oriented and requires `tmux`; it creates and tears down its own tmux server. The actual recorded run used explicit executable paths under `/tmp/helix-research`, `/tmp/helix-npm`, and `/tmp/helix-tools`. The complete original run is retained at `/tmp/helix-smoke-pass` on the validation machine, which is ephemeral and not a required installation path.
+The output directory must not already exist. Adjust the library extension for your platform. The smoke is POSIX-oriented and requires `tmux`; it creates and tears down its own tmux server. The actual recorded run used explicit executable paths under `/tmp/helix-research`, `/tmp/helix-npm`, and `/tmp/helix-tools`. The complete original run is retained at `/tmp/helix-smoke-format` on the validation machine, which is ephemeral and not a required installation path.
 
 ## Real screenshot
 
@@ -56,6 +57,7 @@ The PNG decodes successfully with Pillow. Full-frame vision review plus enlarged
 - Completion, hover, signature help, navigation, references, rename and formatting are configured through LSP but were not interactively exercised. Semantic token rendering, code lenses, inlay hints, call hierarchy and full VS Code feature parity are not claimed.
 - No Openplanet game process was started; the example was not built, staged or run in-game.
 - Single plugin root was tested. Multi-plugin workspaces, marker-free single files, custom `plugin_roots`, optional `.asinc`/header globs and manual project overrides remain documented, untested configurations.
+- Manifest routing has a recorded [red regression test](evidence/manifest-routing-red.txt): the initial unrestricted server list failed the new diagnostics-only expectation. The final configuration restricts Openplanet to diagnostics and the real formatting-routing check passes.
 - The initial deliberate string-to-integer assignment did **not** emit a diagnostic with server 0.8.0. It was replaced by a reliably reported undefined identifier. The fixture and screenshot therefore claim only the actual supported check.
 - npm `@taplo/cli` 0.9.0 was tried and explicitly exited because its build excludes LSP support. The passing run uses official standalone Taplo 0.10.0. Do not recommend that npm package for this role.
 - One preliminary smoke attempt fixed the undefined name by declaring a new unused variable, so the test correctly failed its empty-diagnostics check. The final fix reuses `_laps`, and the final smoke passes.

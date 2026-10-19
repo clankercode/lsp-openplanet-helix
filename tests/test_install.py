@@ -97,12 +97,12 @@ class InstallTests(unittest.TestCase):
                 with self.subTest(command=command, servers=servers):
                     config = tomllib.loads(installer.snippet(command, servers))
                     self.assertEqual(config["language-server"]["openplanet-lsp"]["command"], command)
-                    self.assertEqual(config["language"][1]["language-servers"], ["openplanet-lsp", *(servers if servers is not None else ["taplo"])])
+                    self.assertEqual(config["language"][1]["language-servers"], [{"name": "openplanet-lsp", "only-features": ["diagnostics"]}, *(servers if servers is not None else ["taplo"])])
 
     def test_custom_manifest_servers_via_cli(self):
         self.assertEqual(self.run_install("--toml-server", "tombi", "--toml-server", "taplo").returncode, 0)
         data = tomllib.loads((self.config / "languages.toml").read_text())
-        self.assertEqual(data["language"][1]["language-servers"], ["openplanet-lsp", "tombi", "taplo"])
+        self.assertEqual(data["language"][1]["language-servers"], [{"name": "openplanet-lsp", "only-features": ["diagnostics"]}, "tombi", "taplo"])
 
     def test_empty_server_refused(self):
         self.assertNotEqual(self.run_install("--server-path", "").returncode, 0)
@@ -117,6 +117,7 @@ class InstallTests(unittest.TestCase):
         self.assertEqual(manifest["file-types"], [{"glob": "info.toml"}])
         self.assertEqual(manifest["grammar"], "toml")
         self.assertEqual(manifest["language-id"], "toml")
+        self.assertEqual(manifest["language-servers"][0], {"name": "openplanet-lsp", "only-features": ["diagnostics"]})
         for language in (script, manifest):
             self.assertEqual(language["roots"], ["info.toml", ".openplanet-lsp.toml"])
         self.assertEqual(len(config["grammar"][0]["source"]["rev"]), 40)

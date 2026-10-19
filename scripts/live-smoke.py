@@ -112,6 +112,16 @@ def main():
         command(":open info.toml")
         wait_for(lambda: opened("openplanet-lsp", "info.toml") and opened("taplo", "info.toml"), "both manifest servers")
         evidence["checks"].append("Both Openplanet LSP and real Taplo LSP opened info.toml")
+        command(":format")
+        wait_for(lambda: any(s == "taplo" and d == "->" and e.get("method") == "textDocument/formatting"
+                            for s, d, e in events()), "manifest formatting routed to Taplo")
+        assert not any(s == "openplanet-lsp" and d == "->" and e.get("method") == "textDocument/formatting"
+                       for s, d, e in events()), "Openplanet must not format TOML"
+        # Wait for Taplo's response to avoid modifying the document during formatting.
+        wait_for(lambda: any(s == "taplo" and d == "<-" and "result" in e and isinstance(e["result"], list)
+                            for s, d, e in events()), "Taplo formatting response")
+        command(":write")
+        evidence["checks"].append("Manifest formatting routed only to Taplo")
         manifest = project / "info.toml"
         original = manifest.read_text()
         manifest.write_text(original + '\n[broken\n')

@@ -24,7 +24,7 @@ file-types = [{ glob = "info.toml" }]
 roots = ["info.toml", ".openplanet-lsp.toml"]
 comment-tokens = "#"
 indent = { tab-width = 2, unit = "  " }
-language-servers = ["openplanet-lsp", "taplo"]
+language-servers = [{ name = "openplanet-lsp", only-features = ["diagnostics"] }, "taplo"]
 
 [[grammar]]
 name = "angelscript"

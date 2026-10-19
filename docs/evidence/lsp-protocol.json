@@ -140,7 +140,7 @@
           "name": "helix",
           "version": "25.07.1 (a05c151b)"
         },
-        "processId": 1087153,
+        "processId": 1179172,
         "rootPath": "<verification-run>/demo",
         "rootUri": "file://<verification-run>/demo",
         "workspaceFolders": [
@@ -531,7 +531,7 @@
           "name": "helix",
           "version": "25.07.1 (a05c151b)"
         },
-        "processId": 1087153,
+        "processId": 1179172,
         "rootPath": "<verification-run>/demo",
         "rootUri": "file://<verification-run>/demo",
         "workspaceFolders": [
@@ -562,20 +562,6 @@
   ],
   [
     "openplanet-lsp",
-    "->",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/documentColor",
-      "params": {
-        "textDocument": {
-          "uri": "file://<verification-run>/demo/info.toml"
-        }
-      },
-      "id": 2
-    }
-  ],
-  [
-    "openplanet-lsp",
     "<-",
     {
       "jsonrpc": "2.0",
@@ -584,6 +570,20 @@
         "diagnostics": [],
         "uri": "file://<verification-run>/demo/info.toml"
       }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/documentColor",
+      "params": {
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/src/Main.as"
+        }
+      },
+      "id": 2
     }
   ],
   [
@@ -691,35 +691,39 @@
     }
   ],
   [
-    "openplanet-lsp",
-    "->",
+    "taplo",
+    "<-",
     {
       "jsonrpc": "2.0",
-      "method": "textDocument/documentColor",
+      "method": "textDocument/publishDiagnostics",
       "params": {
-        "textDocument": {
-          "uri": "file://<verification-run>/demo/info.toml"
-        }
-      },
-      "id": 4
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
     }
   ],
   [
-    "openplanet-lsp",
+    "taplo",
     "<-",
     {
       "jsonrpc": "2.0",
-      "result": [],
-      "id": 3
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
     }
   ],
   [
-    "openplanet-lsp",
+    "taplo",
     "<-",
     {
       "jsonrpc": "2.0",
-      "result": [],
-      "id": 4
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
     }
   ],
   [
@@ -743,6 +747,33 @@
     }
   ],
   [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "result": [],
+      "id": 3
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/formatting",
+      "params": {
+        "options": {
+          "insertSpaces": true,
+          "tabSize": 2
+        },
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml"
+        }
+      },
+      "id": 1
+    }
+  ],
+  [
     "taplo",
     "->",
     {
@@ -759,124 +790,59 @@
     "<-",
     {
       "jsonrpc": "2.0",
-      "method": "textDocument/publishDiagnostics",
-      "params": {
-        "uri": "file://<verification-run>/demo/info.toml",
-        "diagnostics": []
-      }
-    }
-  ],
-  [
-    "taplo",
-    "<-",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/publishDiagnostics",
-      "params": {
-        "uri": "file://<verification-run>/demo/info.toml",
-        "diagnostics": []
-      }
-    }
-  ],
-  [
-    "taplo",
-    "<-",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/publishDiagnostics",
-      "params": {
-        "uri": "file://<verification-run>/demo/info.toml",
-        "diagnostics": []
-      }
-    }
-  ],
-  [
-    "openplanet-lsp",
-    "->",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/documentColor",
-      "params": {
-        "textDocument": {
-          "uri": "file://<verification-run>/demo/src/Main.as"
-        }
-      },
-      "id": 5
-    }
-  ],
-  [
-    "openplanet-lsp",
-    "<-",
-    {
-      "jsonrpc": "2.0",
-      "result": [],
-      "id": 5
-    }
-  ],
-  [
-    "openplanet-lsp",
-    "->",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/didChange",
-      "params": {
-        "contentChanges": [
-          {
-            "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n\n[broken\n"
-          }
-        ],
-        "textDocument": {
-          "uri": "file://<verification-run>/demo/info.toml",
-          "version": 1
-        }
-      }
-    }
-  ],
-  [
-    "taplo",
-    "->",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/didChange",
-      "params": {
-        "contentChanges": [
-          {
-            "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n\n[broken\n"
-          }
-        ],
-        "textDocument": {
-          "uri": "file://<verification-run>/demo/info.toml",
-          "version": 1
-        }
-      }
-    }
-  ],
-  [
-    "openplanet-lsp",
-    "<-",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/publishDiagnostics",
-      "params": {
-        "diagnostics": [
-          {
-            "code": "manifest",
-            "message": "TOML parse error: TOML parse error at line 10, column 8\n   |\n10 | [broken\n   |        ^\ninvalid table header\nexpected `.`, `]`\n",
-            "range": {
-              "end": {
-                "character": 0,
-                "line": 10
-              },
-              "start": {
-                "character": 7,
-                "line": 9
-              }
+      "id": 1,
+      "result": [
+        {
+          "range": {
+            "start": {
+              "line": 0,
+              "character": 0
             },
-            "severity": 1,
-            "source": "openplanet-lsp"
+            "end": {
+              "line": 8,
+              "character": 0
+            }
+          },
+          "newText": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n"
+        }
+      ]
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didChange",
+      "params": {
+        "contentChanges": [
+          {
+            "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n\n[broken\n"
           }
         ],
-        "uri": "file://<verification-run>/demo/info.toml"
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml",
+          "version": 1
+        }
+      }
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didChange",
+      "params": {
+        "contentChanges": [
+          {
+            "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n\n[broken\n"
+          }
+        ],
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml",
+          "version": 1
+        }
       }
     }
   ],
@@ -923,6 +889,35 @@
   ],
   [
     "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [
+          {
+            "code": "manifest",
+            "message": "TOML parse error: TOML parse error at line 10, column 8\n   |\n10 | [broken\n   |        ^\ninvalid table header\nexpected `.`, `]`\n",
+            "range": {
+              "end": {
+                "character": 0,
+                "line": 10
+              },
+              "start": {
+                "character": 7,
+                "line": 9
+              }
+            },
+            "severity": 1,
+            "source": "openplanet-lsp"
+          }
+        ],
+        "uri": "file://<verification-run>/demo/info.toml"
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
     "->",
     {
       "jsonrpc": "2.0",
@@ -956,6 +951,18 @@
           "uri": "file://<verification-run>/demo/info.toml",
           "version": 2
         }
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [],
+        "uri": "file://<verification-run>/demo/info.toml"
       }
     }
   ],
@@ -993,18 +1000,6 @@
       "params": {
         "uri": "file://<verification-run>/demo/info.toml",
         "diagnostics": []
-      }
-    }
-  ],
-  [
-    "openplanet-lsp",
-    "<-",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/publishDiagnostics",
-      "params": {
-        "diagnostics": [],
-        "uri": "file://<verification-run>/demo/info.toml"
       }
     }
   ],
@@ -1083,29 +1078,6 @@
         "uri": "file://<verification-run>/demo/settings.toml",
         "diagnostics": []
       }
-    }
-  ],
-  [
-    "openplanet-lsp",
-    "->",
-    {
-      "jsonrpc": "2.0",
-      "method": "textDocument/documentColor",
-      "params": {
-        "textDocument": {
-          "uri": "file://<verification-run>/demo/info.toml"
-        }
-      },
-      "id": 6
-    }
-  ],
-  [
-    "openplanet-lsp",
-    "<-",
-    {
-      "jsonrpc": "2.0",
-      "result": [],
-      "id": 6
     }
   ]
 ]
