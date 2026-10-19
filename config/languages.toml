@@ -1,0 +1,31 @@
+# Append these definitions to your Helix languages.toml; do not replace the file.
+[language-server.openplanet-lsp]
+command = "openplanet-lsp"
+args = ["--lsp"]
+# Leave initialization options unset so server/project/user defaults apply.
+
+[[language]]
+name = "angelscript"
+language-id = "angelscript"
+scope = "source.angelscript"
+file-types = ["as"]
+roots = ["info.toml", ".openplanet-lsp.toml"]
+comment-tokens = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["openplanet-lsp"]
+
+[[language]]
+name = "openplanet-info"
+language-id = "toml"
+scope = "source.toml"
+grammar = "toml"
+file-types = [{ glob = "info.toml" }]
+roots = ["info.toml", ".openplanet-lsp.toml"]
+comment-tokens = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["openplanet-lsp", "taplo"]
+
+[[grammar]]
+name = "angelscript"
+source = { git = "https://github.com/Relrin/tree-sitter-angelscript", rev = "4595504ef9ae3fc7d597a14fd09d9aebc5eaf8e6" }

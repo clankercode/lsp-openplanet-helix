@@ -1,0 +1,8 @@
+[meta]
+name = "Helix LSP demonstration"
+author = "lsp-openplanet-helix contributors"
+category = "Development"
+version = "0.1.0"
+
+[script]
+timeout = 5000
