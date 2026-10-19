@@ -25,7 +25,7 @@ class InstallTests(unittest.TestCase):
 
     def write(self, text):
         self.config.mkdir(parents=True, exist_ok=True)
-        (self.config / "languages.toml").write_text(text)
+        (self.config / "languages.toml").write_bytes(text.encode())
 
     def test_fresh_install_and_repeat_are_identical(self):
         self.assertEqual(self.run_install().returncode, 0)
