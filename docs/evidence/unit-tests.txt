@@ -1,5 +1,7 @@
+test_cargo_runtime_override_is_removed (test_grammar.GrammarBuilderTests.test_cargo_runtime_override_is_removed) ... ok
 test_existing_custom_library_is_preserved (test_grammar.GrammarBuilderTests.test_existing_custom_library_is_preserved) ... ok
 test_failed_helix_does_not_install_library (test_grammar.GrammarBuilderTests.test_failed_helix_does_not_install_library) ... ok
+test_ignores_import_libraries_and_export_symbols (test_grammar.GrammarBuilderTests.test_ignores_import_libraries_and_export_symbols) ... ok
 test_isolated_build_preserves_grammar_selection_and_is_idempotent (test_grammar.GrammarBuilderTests.test_isolated_build_preserves_grammar_selection_and_is_idempotent) ... ok
 test_complete_licenses_and_query_attribution (test_install.InstallTests.test_complete_licenses_and_query_attribution) ... ok
 test_config_contract (test_install.InstallTests.test_config_contract) ... ok
@@ -16,6 +18,6 @@ test_query_conflict_preflight_does_not_write_languages (test_install.InstallTest
 test_symlinked_languages_refused (test_install.InstallTests.test_symlinked_languages_refused) ... ok
 
 ----------------------------------------------------------------------
-Ran 16 tests in 7.016s
+Ran 18 tests in 5.287s
 
 OK

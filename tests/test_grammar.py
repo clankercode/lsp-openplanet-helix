@@ -4,6 +4,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -21,12 +22,16 @@ class GrammarBuilderTests(unittest.TestCase):
         self.fake.write_text("#!" + sys.executable + "\n" + '''import os
 from pathlib import Path
 import sys
+assert "CARGO_MANIFEST_DIR" not in os.environ
 p = Path(os.environ["XDG_CONFIG_HOME"]) / "helix"
 s = (p / "languages.toml").read_text()
 assert 'only = ["angelscript"]' in s
 assert "4595504ef9ae3fc7d597a14fd09d9aebc5eaf8e6" in s
 if sys.argv[-1] == "build":
     (p / "runtime/grammars/angelscript.so").write_bytes(b"fake library for isolated wrapper test")
+    if os.environ.get("TEST_IMPORT_LIBRARY"):
+        (p / "runtime/grammars/angelscript.lib").write_bytes(b"import library")
+        (p / "runtime/grammars/angelscript.exp").write_bytes(b"export symbols")
 ''')
         self.fake.chmod(0o755)
 
@@ -41,6 +46,16 @@ if sys.argv[-1] == "build":
         self.assertEqual((self.config / "languages.toml").read_bytes(), before)
         self.assertEqual(self.run_build().returncode, 0)
         self.assertEqual((self.config / "runtime/grammars/angelscript.so").read_bytes(), b"fake library for isolated wrapper test")
+
+    def test_ignores_import_libraries_and_export_symbols(self):
+        with patch.dict(os.environ, {"TEST_IMPORT_LIBRARY": "1"}):
+            self.assertEqual(self.run_build().returncode, 0)
+        self.assertFalse((self.config / "runtime/grammars/angelscript.lib").exists())
+
+    def test_cargo_runtime_override_is_removed(self):
+        with patch.dict(os.environ, {"CARGO_MANIFEST_DIR": str(self.root / "foreign/crate")}):
+            self.assertEqual(self.run_build().returncode, 0)
+        self.assertFalse((self.root / "foreign/runtime").exists())
 
     def test_existing_custom_library_is_preserved(self):
         path = self.config / "runtime/grammars/angelscript.so"

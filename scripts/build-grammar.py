@@ -4,7 +4,6 @@ import argparse
 import importlib.util
 import os
 from pathlib import Path
-import shutil
 import subprocess
 import tempfile
 
@@ -26,9 +25,10 @@ def main() -> None:
         grammar = (installer.ROOT / "config/languages.toml").read_text().split("[[grammar]]", 1)[1]
         (config / "languages.toml").write_text('use-grammars = { only = ["angelscript"] }\n[[grammar]]' + grammar)
         env = {**os.environ, "XDG_CONFIG_HOME": str(root), "APPDATA": str(root)}
+        env.pop("CARGO_MANIFEST_DIR", None)  # Helix gives this runtime override first priority.
         for action in ("fetch", "build"):
             subprocess.run([args.helix, "--grammar", action], env=env, cwd=root, check=True)
-        products = [p for p in (config / "runtime/grammars").glob("angelscript.*") if p.is_file()]
+        products = [p for p in (config / "runtime/grammars").glob("angelscript.*") if p.is_file() and p.suffix in {".so", ".dylib", ".dll"}]
         if len(products) != 1:
             raise RuntimeError(f"Expected one grammar library, found: {products}")
         target = args.config_dir / "runtime/grammars" / products[0].name

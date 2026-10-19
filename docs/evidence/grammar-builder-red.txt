@@ -1,0 +1,28 @@
+test_cargo_runtime_override_is_removed (test_grammar.GrammarBuilderTests.test_cargo_runtime_override_is_removed) ... FAIL
+test_existing_custom_library_is_preserved (test_grammar.GrammarBuilderTests.test_existing_custom_library_is_preserved) ... ok
+test_failed_helix_does_not_install_library (test_grammar.GrammarBuilderTests.test_failed_helix_does_not_install_library) ... ok
+test_ignores_import_libraries_and_export_symbols (test_grammar.GrammarBuilderTests.test_ignores_import_libraries_and_export_symbols) ... FAIL
+test_isolated_build_preserves_grammar_selection_and_is_idempotent (test_grammar.GrammarBuilderTests.test_isolated_build_preserves_grammar_selection_and_is_idempotent) ... ok
+
+======================================================================
+FAIL: test_cargo_runtime_override_is_removed (test_grammar.GrammarBuilderTests.test_cargo_runtime_override_is_removed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xertrov/src/lsp-openplanet-helix/tests/test_grammar.py", line 57, in test_cargo_runtime_override_is_removed
+    self.assertEqual(self.run_build().returncode, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_ignores_import_libraries_and_export_symbols (test_grammar.GrammarBuilderTests.test_ignores_import_libraries_and_export_symbols)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/xertrov/src/lsp-openplanet-helix/tests/test_grammar.py", line 52, in test_ignores_import_libraries_and_export_symbols
+    self.assertEqual(self.run_build().returncode, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.054s
+
+FAILED (failures=2)
