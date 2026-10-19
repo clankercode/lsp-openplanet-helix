@@ -1,8 +1,8 @@
 // Original minimal Openplanet demo. The marked error is intentional.
 void Main() {
-    int laps = 3;
+    int _laps = 3;
     print("Hello from Helix!");
-    laps = "three"; // LSP: assigning string to int
+    missing_counter += 1; // intentional unresolved identifier
 }
 
 void RenderMenu() {
