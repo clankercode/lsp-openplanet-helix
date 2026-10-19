@@ -4,6 +4,8 @@
 
 Linux x86_64, Python 3.14.8, Node 22.23.3, npm 12.0.1, GCC 16.2.1. Portable **Helix 25.07.1 (a05c151b)** from the official release archive. Server **openplanet-lsp 0.8.0**, installed from npm in `/tmp/helix-npm` rather than using a checkout build. Standalone **Taplo 0.10.0** from its official GitHub release. No global install, full system update, server rebuild or user Helix configuration edit was performed.
 
+A second real grammar build with inherited `CARGO_MANIFEST_DIR=/tmp/helix-foreign/crate` also passed; no `/tmp/helix-foreign/runtime` directory was created.
+
 AngelScript grammar: Relrin revision `4595504ef9ae3fc7d597a14fd09d9aebc5eaf8e6`, fetched and built by the shipped builder using real Helix. ABI 15 parser and its highlight query load successfully in this release. `hx --health angelscript` reports parser/highlights/server available; `hx --health openplanet-info` reports TOML parser/highlights and configured servers available. Textobjects and indent queries are absent and deliberately not claimed.
 
 The server auto-detected the existing real Openplanet type DB: Openplanet 1.29.14, game DB dated 2026-02-03. No fixture type database was substituted or shipped.
@@ -52,7 +54,7 @@ The PNG decodes successfully with Pillow. Full-frame vision review plus enlarged
 
 ## Known limits and failed probes
 
-- **Linux only** was tested live. macOS/Windows CI covers Python configuration behavior only; actual editor launch, grammar compilation, npm binary delivery and GUI behavior on those OSes are unverified. CI itself must be inspected after publication before claiming its hosted runs pass.
+- **Linux only** was tested live. macOS/Windows CI covers Python configuration behavior only; actual editor launch, grammar compilation, npm binary delivery and GUI behavior on those OSes are unverified. Hosted CI for commit `7ca0987b03f299bb5d511f5ebd24952da6a95c2e` passed on all three operating systems: [run 39216494551](https://github.com/clankercode/lsp-openplanet-helix/actions/runs/39216494551). It uses Python 3.11; Windows skips the five POSIX fake-executable builder tests and symlink test.
 - Minimum Helix version is the tested stable 25.07.1. Newer Helix releases, nightly builds and older versions have not been tested.
 - Completion, hover, signature help, navigation, references, rename and formatting are configured through LSP but were not interactively exercised. Semantic token rendering, code lenses, inlay hints, call hierarchy and full VS Code feature parity are not claimed.
 - No Openplanet game process was started; the example was not built, staged or run in-game.
