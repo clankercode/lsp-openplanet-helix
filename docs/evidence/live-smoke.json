@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Real Helix received undefined-identifier diagnostic",
+    "Diagnostic cleared after source fix and Helix :reload",
+    "Both Openplanet LSP and real Taplo LSP opened info.toml",
+    "Openplanet LSP published invalid-manifest diagnostic",
+    "Ordinary TOML opened by Taplo, not Openplanet LSP"
+  ],
+  "helix": "helix 25.07.1 (a05c151b)",
+  "server": "openplanet-lsp 0.8.0",
+  "taplo": "taplo 0.10.0",
+  "result": "PASS"
+}

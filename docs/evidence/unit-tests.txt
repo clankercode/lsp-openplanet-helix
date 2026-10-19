@@ -1,0 +1,21 @@
+test_existing_custom_library_is_preserved (test_grammar.GrammarBuilderTests.test_existing_custom_library_is_preserved) ... ok
+test_failed_helix_does_not_install_library (test_grammar.GrammarBuilderTests.test_failed_helix_does_not_install_library) ... ok
+test_isolated_build_preserves_grammar_selection_and_is_idempotent (test_grammar.GrammarBuilderTests.test_isolated_build_preserves_grammar_selection_and_is_idempotent) ... ok
+test_complete_licenses_and_query_attribution (test_install.InstallTests.test_complete_licenses_and_query_attribution) ... ok
+test_config_contract (test_install.InstallTests.test_config_contract) ... ok
+test_conflicting_definitions_leave_all_files_unchanged (test_install.InstallTests.test_conflicting_definitions_leave_all_files_unchanged) ... ok
+test_custom_manifest_servers_via_cli (test_install.InstallTests.test_custom_manifest_servers_via_cli) ... ok
+test_dry_run_creates_nothing (test_install.InstallTests.test_dry_run_creates_nothing) ... ok
+test_empty_server_refused (test_install.InstallTests.test_empty_server_refused) ... ok
+test_executable_path_and_toml_variants_roundtrip (test_install.InstallTests.test_executable_path_and_toml_variants_roundtrip) ... ok
+test_fresh_install_and_repeat_are_identical (test_install.InstallTests.test_fresh_install_and_repeat_are_identical) ... ok
+test_malformed_toml_refused (test_install.InstallTests.test_malformed_toml_refused) ... ok
+test_partial_identical_install_refused (test_install.InstallTests.test_partial_identical_install_refused) ... ok
+test_preserves_comments_newlines_and_existing_toml_servers (test_install.InstallTests.test_preserves_comments_newlines_and_existing_toml_servers) ... ok
+test_query_conflict_preflight_does_not_write_languages (test_install.InstallTests.test_query_conflict_preflight_does_not_write_languages) ... ok
+test_symlinked_languages_refused (test_install.InstallTests.test_symlinked_languages_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 3.070s
+
+OK

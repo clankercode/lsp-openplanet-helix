@@ -1,0 +1,26 @@
+    1  // Original minimal Openplanet demo. The marked error is intentional.
+    2  void Main() {                                                                                  undefined identifier `missing_counter`
+    3      int _laps = 3;
+    4      print("Hello from Helix!");
+●   5      missing_counter += 1; // intentional unresolved identifier
+    6  }
+    7
+    8  void RenderMenu() {
+    9      if (UI::MenuItem("Helix demo")) {
+   10          print("Openplanet language tools are connected.");
+   11      }
+   12  }
+    ~
+
+
+
+
+
+
+
+
+
+
+
+ NOR   src/Main.as                                                                                                         ● 1  1 sel  5:19
+

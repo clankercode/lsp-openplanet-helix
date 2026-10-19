@@ -1,0 +1,1111 @@
+[
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "initialize",
+      "params": {
+        "capabilities": {
+          "general": {
+            "positionEncodings": [
+              "utf-8",
+              "utf-32",
+              "utf-16"
+            ]
+          },
+          "textDocument": {
+            "codeAction": {
+              "codeActionLiteralSupport": {
+                "codeActionKind": {
+                  "valueSet": [
+                    "",
+                    "quickfix",
+                    "refactor",
+                    "refactor.extract",
+                    "refactor.inline",
+                    "refactor.rewrite",
+                    "source",
+                    "source.organizeImports"
+                  ]
+                }
+              },
+              "dataSupport": true,
+              "disabledSupport": true,
+              "isPreferredSupport": true,
+              "resolveSupport": {
+                "properties": [
+                  "edit",
+                  "command"
+                ]
+              }
+            },
+            "completion": {
+              "completionItem": {
+                "deprecatedSupport": true,
+                "insertReplaceSupport": true,
+                "resolveSupport": {
+                  "properties": [
+                    "documentation",
+                    "detail",
+                    "additionalTextEdits"
+                  ]
+                },
+                "snippetSupport": true,
+                "tagSupport": {
+                  "valueSet": [
+                    1
+                  ]
+                }
+              },
+              "completionItemKind": {}
+            },
+            "formatting": {
+              "dynamicRegistration": false
+            },
+            "hover": {
+              "contentFormat": [
+                "markdown"
+              ]
+            },
+            "inlayHint": {
+              "dynamicRegistration": false
+            },
+            "publishDiagnostics": {
+              "tagSupport": {
+                "valueSet": [
+                  1,
+                  2
+                ]
+              },
+              "versionSupport": true
+            },
+            "rename": {
+              "dynamicRegistration": false,
+              "honorsChangeAnnotations": false,
+              "prepareSupport": true
+            },
+            "signatureHelp": {
+              "signatureInformation": {
+                "activeParameterSupport": true,
+                "documentationFormat": [
+                  "markdown"
+                ],
+                "parameterInformation": {
+                  "labelOffsetSupport": true
+                }
+              }
+            }
+          },
+          "window": {
+            "workDoneProgress": true
+          },
+          "workspace": {
+            "applyEdit": true,
+            "configuration": true,
+            "didChangeConfiguration": {
+              "dynamicRegistration": false
+            },
+            "didChangeWatchedFiles": {
+              "dynamicRegistration": true,
+              "relativePatternSupport": false
+            },
+            "executeCommand": {
+              "dynamicRegistration": false
+            },
+            "fileOperations": {
+              "didRename": true,
+              "willRename": true
+            },
+            "inlayHint": {
+              "refreshSupport": false
+            },
+            "symbol": {
+              "dynamicRegistration": false
+            },
+            "workspaceEdit": {
+              "documentChanges": true,
+              "failureHandling": "abort",
+              "normalizesLineEndings": false,
+              "resourceOperations": [
+                "create",
+                "rename",
+                "delete"
+              ]
+            },
+            "workspaceFolders": true
+          }
+        },
+        "clientInfo": {
+          "name": "helix",
+          "version": "25.07.1 (a05c151b)"
+        },
+        "processId": 1087153,
+        "rootPath": "<verification-run>/demo",
+        "rootUri": "file://<verification-run>/demo",
+        "workspaceFolders": [
+          {
+            "name": "demo",
+            "uri": "file://<verification-run>/demo"
+          }
+        ]
+      },
+      "id": 0
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "capabilities": {
+          "callHierarchyProvider": true,
+          "codeActionProvider": {
+            "codeActionKinds": [
+              "quickfix",
+              "refactor.rewrite",
+              "source.fixAll",
+              "source.fixAll.openplanet"
+            ],
+            "resolveProvider": true
+          },
+          "colorProvider": true,
+          "completionProvider": {
+            "triggerCharacters": [
+              ".",
+              ":",
+              "@",
+              "#"
+            ]
+          },
+          "definitionProvider": true,
+          "documentFormattingProvider": true,
+          "documentHighlightProvider": true,
+          "documentSymbolProvider": true,
+          "executeCommandProvider": {
+            "commands": [
+              "openplanet.regenerateTypeDb"
+            ]
+          },
+          "foldingRangeProvider": true,
+          "hoverProvider": true,
+          "inlayHintProvider": true,
+          "referencesProvider": true,
+          "renameProvider": {
+            "prepareProvider": true
+          },
+          "semanticTokensProvider": {
+            "full": true,
+            "legend": {
+              "tokenModifiers": [
+                "declaration",
+                "readonly",
+                "static"
+              ],
+              "tokenTypes": [
+                "keyword",
+                "type",
+                "class",
+                "interface",
+                "enum",
+                "enumMember",
+                "function",
+                "method",
+                "variable",
+                "parameter",
+                "property",
+                "namespace",
+                "string",
+                "number",
+                "comment",
+                "operator",
+                "macro"
+              ]
+            }
+          },
+          "signatureHelpProvider": {
+            "triggerCharacters": [
+              "(",
+              ","
+            ]
+          },
+          "textDocumentSync": {
+            "change": 1,
+            "openClose": true,
+            "save": true
+          },
+          "workspace": {
+            "workspaceFolders": {
+              "changeNotifications": true,
+              "supported": true
+            }
+          },
+          "workspaceSymbolProvider": true
+        }
+      },
+      "id": 0
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "initialized",
+      "params": {}
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didOpen",
+      "params": {
+        "textDocument": {
+          "languageId": "angelscript",
+          "text": "// Original minimal Openplanet demo. The marked error is intentional.\nvoid Main() {\n    int _laps = 3;\n    print(\"Hello from Helix!\");\n    missing_counter += 1; // intentional unresolved identifier\n}\n\nvoid RenderMenu() {\n    if (UI::MenuItem(\"Helix demo\")) {\n        print(\"Openplanet language tools are connected.\");\n    }\n}\n",
+          "uri": "file://<verification-run>/demo/src/Main.as",
+          "version": 0
+        }
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/documentColor",
+      "params": {
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/src/Main.as"
+        }
+      },
+      "id": 1
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [],
+        "uri": "file://<verification-run>/demo/info.toml"
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "result": [],
+      "id": 1
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [
+          {
+            "message": "undefined identifier `missing_counter`",
+            "range": {
+              "end": {
+                "character": 19,
+                "line": 4
+              },
+              "start": {
+                "character": 4,
+                "line": 4
+              }
+            },
+            "severity": 1,
+            "source": "openplanet-lsp"
+          }
+        ],
+        "uri": "file://<verification-run>/demo/src/Main.as"
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [],
+        "uri": "file://<verification-run>/demo/info.toml"
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didChange",
+      "params": {
+        "contentChanges": [
+          {
+            "text": "// Original minimal Openplanet demo. The marked error is intentional.\nvoid Main() {\n    int _laps = 3;\n    print(\"Hello from Helix!\");\n    _laps += 1; // intentional unresolved identifier\n}\n\nvoid RenderMenu() {\n    if (UI::MenuItem(\"Helix demo\")) {\n        print(\"Openplanet language tools are connected.\");\n    }\n}\n"
+          }
+        ],
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/src/Main.as",
+          "version": 1
+        }
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [],
+        "uri": "file://<verification-run>/demo/src/Main.as"
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [],
+        "uri": "file://<verification-run>/demo/info.toml"
+      }
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "initialize",
+      "params": {
+        "capabilities": {
+          "general": {
+            "positionEncodings": [
+              "utf-8",
+              "utf-32",
+              "utf-16"
+            ]
+          },
+          "textDocument": {
+            "codeAction": {
+              "codeActionLiteralSupport": {
+                "codeActionKind": {
+                  "valueSet": [
+                    "",
+                    "quickfix",
+                    "refactor",
+                    "refactor.extract",
+                    "refactor.inline",
+                    "refactor.rewrite",
+                    "source",
+                    "source.organizeImports"
+                  ]
+                }
+              },
+              "dataSupport": true,
+              "disabledSupport": true,
+              "isPreferredSupport": true,
+              "resolveSupport": {
+                "properties": [
+                  "edit",
+                  "command"
+                ]
+              }
+            },
+            "completion": {
+              "completionItem": {
+                "deprecatedSupport": true,
+                "insertReplaceSupport": true,
+                "resolveSupport": {
+                  "properties": [
+                    "documentation",
+                    "detail",
+                    "additionalTextEdits"
+                  ]
+                },
+                "snippetSupport": true,
+                "tagSupport": {
+                  "valueSet": [
+                    1
+                  ]
+                }
+              },
+              "completionItemKind": {}
+            },
+            "formatting": {
+              "dynamicRegistration": false
+            },
+            "hover": {
+              "contentFormat": [
+                "markdown"
+              ]
+            },
+            "inlayHint": {
+              "dynamicRegistration": false
+            },
+            "publishDiagnostics": {
+              "tagSupport": {
+                "valueSet": [
+                  1,
+                  2
+                ]
+              },
+              "versionSupport": true
+            },
+            "rename": {
+              "dynamicRegistration": false,
+              "honorsChangeAnnotations": false,
+              "prepareSupport": true
+            },
+            "signatureHelp": {
+              "signatureInformation": {
+                "activeParameterSupport": true,
+                "documentationFormat": [
+                  "markdown"
+                ],
+                "parameterInformation": {
+                  "labelOffsetSupport": true
+                }
+              }
+            }
+          },
+          "window": {
+            "workDoneProgress": true
+          },
+          "workspace": {
+            "applyEdit": true,
+            "configuration": true,
+            "didChangeConfiguration": {
+              "dynamicRegistration": false
+            },
+            "didChangeWatchedFiles": {
+              "dynamicRegistration": true,
+              "relativePatternSupport": false
+            },
+            "executeCommand": {
+              "dynamicRegistration": false
+            },
+            "fileOperations": {
+              "didRename": true,
+              "willRename": true
+            },
+            "inlayHint": {
+              "refreshSupport": false
+            },
+            "symbol": {
+              "dynamicRegistration": false
+            },
+            "workspaceEdit": {
+              "documentChanges": true,
+              "failureHandling": "abort",
+              "normalizesLineEndings": false,
+              "resourceOperations": [
+                "create",
+                "rename",
+                "delete"
+              ]
+            },
+            "workspaceFolders": true
+          }
+        },
+        "clientInfo": {
+          "name": "helix",
+          "version": "25.07.1 (a05c151b)"
+        },
+        "processId": 1087153,
+        "rootPath": "<verification-run>/demo",
+        "rootUri": "file://<verification-run>/demo",
+        "workspaceFolders": [
+          {
+            "name": "demo",
+            "uri": "file://<verification-run>/demo"
+          }
+        ]
+      },
+      "id": 0
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didOpen",
+      "params": {
+        "textDocument": {
+          "languageId": "toml",
+          "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n",
+          "uri": "file://<verification-run>/demo/info.toml",
+          "version": 0
+        }
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/documentColor",
+      "params": {
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml"
+        }
+      },
+      "id": 2
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [],
+        "uri": "file://<verification-run>/demo/info.toml"
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "result": [],
+      "id": 2
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "id": 0,
+      "result": {
+        "capabilities": {
+          "textDocumentSync": 1,
+          "hoverProvider": true,
+          "completionProvider": {
+            "resolveProvider": false,
+            "triggerCharacters": [
+              ".",
+              "=",
+              "[",
+              "{",
+              ",",
+              "\""
+            ]
+          },
+          "documentSymbolProvider": true,
+          "documentFormattingProvider": true,
+          "renameProvider": {
+            "prepareProvider": true
+          },
+          "documentLinkProvider": {},
+          "foldingRangeProvider": true,
+          "workspace": {
+            "workspaceFolders": {
+              "supported": true,
+              "changeNotifications": true
+            }
+          },
+          "semanticTokensProvider": {
+            "workDoneProgress": false,
+            "legend": {
+              "tokenTypes": [
+                "tomlArrayKey",
+                "tomlTableKey"
+              ],
+              "tokenModifiers": [
+                "readonly"
+              ]
+            },
+            "range": false,
+            "full": true
+          }
+        },
+        "serverInfo": {
+          "name": "Taplo",
+          "version": "0.8.0"
+        }
+      }
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "initialized",
+      "params": {}
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didOpen",
+      "params": {
+        "textDocument": {
+          "languageId": "toml",
+          "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n",
+          "uri": "file://<verification-run>/demo/info.toml",
+          "version": 0
+        }
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/documentColor",
+      "params": {
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/src/Main.as"
+        }
+      },
+      "id": 3
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/documentColor",
+      "params": {
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml"
+        }
+      },
+      "id": 4
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "result": [],
+      "id": 3
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "result": [],
+      "id": 4
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "workspace/configuration",
+      "id": 0,
+      "params": {
+        "items": [
+          {
+            "section": "evenBetterToml"
+          },
+          {
+            "scopeUri": "file://<verification-run>/demo",
+            "section": "evenBetterToml"
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "result": [
+        null,
+        null
+      ],
+      "id": 0
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/documentColor",
+      "params": {
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/src/Main.as"
+        }
+      },
+      "id": 5
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "result": [],
+      "id": 5
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didChange",
+      "params": {
+        "contentChanges": [
+          {
+            "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n\n[broken\n"
+          }
+        ],
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml",
+          "version": 1
+        }
+      }
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didChange",
+      "params": {
+        "contentChanges": [
+          {
+            "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n\n[broken\n"
+          }
+        ],
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml",
+          "version": 1
+        }
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [
+          {
+            "code": "manifest",
+            "message": "TOML parse error: TOML parse error at line 10, column 8\n   |\n10 | [broken\n   |        ^\ninvalid table header\nexpected `.`, `]`\n",
+            "range": {
+              "end": {
+                "character": 0,
+                "line": 10
+              },
+              "start": {
+                "character": 7,
+                "line": 9
+              }
+            },
+            "severity": 1,
+            "source": "openplanet-lsp"
+          }
+        ],
+        "uri": "file://<verification-run>/demo/info.toml"
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "taplo/didChangeSchemaAssociation",
+      "params": {
+        "documentUri": "file://<verification-run>/demo/info.toml",
+        "schemaUri": null,
+        "meta": null
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 9,
+                "character": 7
+              },
+              "end": {
+                "line": 10,
+                "character": 0
+              }
+            },
+            "severity": 1,
+            "source": "Even Better TOML",
+            "message": "expected \"]\""
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didChange",
+      "params": {
+        "contentChanges": [
+          {
+            "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n"
+          }
+        ],
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml",
+          "version": 2
+        }
+      }
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didChange",
+      "params": {
+        "contentChanges": [
+          {
+            "text": "[meta]\nname = \"Helix LSP demonstration\"\nauthor = \"lsp-openplanet-helix contributors\"\ncategory = \"Development\"\nversion = \"0.1.0\"\n\n[script]\ntimeout = 5000\n"
+          }
+        ],
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml",
+          "version": 2
+        }
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "taplo/didChangeSchemaAssociation",
+      "params": {
+        "documentUri": "file://<verification-run>/demo/info.toml",
+        "schemaUri": null,
+        "meta": null
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "diagnostics": [],
+        "uri": "file://<verification-run>/demo/info.toml"
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/info.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "taplo",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/didOpen",
+      "params": {
+        "textDocument": {
+          "languageId": "toml",
+          "text": "title = \"Ordinary TOML\"\n",
+          "uri": "file://<verification-run>/demo/settings.toml",
+          "version": 0
+        }
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "taplo/didChangeSchemaAssociation",
+      "params": {
+        "documentUri": "file://<verification-run>/demo/info.toml",
+        "schemaUri": null,
+        "meta": null
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/settings.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/settings.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "taplo",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/publishDiagnostics",
+      "params": {
+        "uri": "file://<verification-run>/demo/settings.toml",
+        "diagnostics": []
+      }
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "->",
+    {
+      "jsonrpc": "2.0",
+      "method": "textDocument/documentColor",
+      "params": {
+        "textDocument": {
+          "uri": "file://<verification-run>/demo/info.toml"
+        }
+      },
+      "id": 6
+    }
+  ],
+  [
+    "openplanet-lsp",
+    "<-",
+    {
+      "jsonrpc": "2.0",
+      "result": [],
+      "id": 6
+    }
+  ]
+]
